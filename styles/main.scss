@@ -1,0 +1,76 @@
+@import 'bourbon/bourbon';
+$visual-grid: true;
+@import 'neat/neat';
+
+//CLEAR BORDER PROPERTIES
+
+*,
+*::before,
+ *::after {
+  box-sizing: border-box;
+}
+
+
+//PAGE LAYOUT POINTS
+
+$mobile: new-breakpoint(max-width 500px 4);
+$tablet: new-breakpoint(max-width 840px 6);
+
+
+//FONT COLORS
+
+$capecod: rgb(81, 81, 81);
+$aluminum: rgb(153, 153, 153);
+$oil: rgb(51, 51, 51);
+$zircon: rgb(225, 225, 225);
+$bokaragray: rgb(40, 40, 40);
+$white: rgb(255, 255, 255);
+
+//FONT FAMILY
+
+$main-font: "Inconsolata", "Open Sans", sans-serif;
+$secondary-font: "Open Sans", "Inconsolata", sans-serif;
+
+.container{
+  border-radius: 7px;
+}
+
+.header .mainbody .footer {
+  @include omega(2n);
+
+}
+
+headerchatbox
+
+.boxstructure {
+  @include span-columns(12);
+  display: inline-block;
+
+
+}
+
+.header {
+  height: 50px;
+  background-color: $oil;
+  font-family: $main-font;
+  color: $zircon;
+  font-size: 24px;
+
+
+}
+
+.mainbody{
+  height: 500px;
+  background-color: $white;
+  border: 1px solid $aluminum;
+  font-family: $secondary-font;
+
+}
+
+.footer{
+  height: 100px;
+  background-color: $capecod;
+  font-family: $secondary-font;
+  color:$white;
+
+}
