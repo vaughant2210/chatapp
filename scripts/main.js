@@ -1,8 +1,9 @@
-// Global Variables 
+// Global Variables
 //  -- try to keep this section SHORT! :)
 
 
 // Object definitions
+var messageTemplate = _.template($('[data-template-name=message]').text());
 
 
 // Primary Data Functions (AJAX)
@@ -14,7 +15,13 @@ var getMessages = function(callback) {
 
 
 // Helper Functions
-getMessages(function(d) { console.log(d); });
+// getMessages(function(d) { console.log(d); });
+getMessages(function(data) {
+  data.forEach(function(message) {
+    if (!message.username) { return; }
+    $('.chatbox').append(messageTemplate(message));
+  });
+});
 
 
 // Application Loop(s)

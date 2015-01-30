@@ -27,42 +27,39 @@
     <div class="mainbody">
       <div class="chatbox boxstructure">
 
-
-        <li>
-
-          <div class ="leftside">
-            <span class="message">This is a test note. I think this is worth saving to our save file, what do you think.This is a test note. I think this is worth saving to our save This is a test note. I think this is worth saving to our save This is a test note. I think this is worth saving to our save This is a test note. I think this is worth saving to our save  </span>
-          </div>
-
-          <div class="center">
-
-                <span class="info-details">by Vaughan</span>
-                <span class="timestamp">8:00am</span>
-
-          </div>
-
-          <div class="rightside">
-                <span class="actions">
-                <i class="fi-star"></i>
-                </span>
-          </div>
-
-        </li>
-
       </div>
 
     </div>
 
     <div class="footer">
-      <div class="footerchatbox boxstructure"></div>
+      <div class="footerchatbox boxstructure">
+      <div class="input-container">
+        <input type="text" class="input" placeholder="(Click here to type)"><!--
+        --><button class="submit">+</button>
+        </div>
+      </div>
     </div>
 
 
   </section>
 
+<script type="text/template" data-template-name="message">
+  <li>
+    <div class ="leftside">
+      <span class="message"><%= (message) ? message : "&&NOMESSAGE" %></span>
+    </div>
+    <div class="center">
+          <span class="info-details">by <%= (username) ? username : "&&NONAME"  %></span>
+          <span class="timestamp">:date</span>
+    </div>
 
-
-
+    <div class="rightside">
+          <span class="actions">
+            <i class="fi-star"></i>
+          </span>
+    </div>
+  </li>
+</script>
 
 
 <script src="bower_components/jquery/dist/jquery.js"></script>

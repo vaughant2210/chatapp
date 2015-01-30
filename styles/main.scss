@@ -45,8 +45,8 @@ headerchatbox
 
 .boxstructure {
   @include span-columns(12);
-  display: inline-block;
-
+  @include omega();
+  display: block;
 
 }
 
@@ -62,7 +62,7 @@ headerchatbox
 }
 
 .mainbody {
-  height: 500px;
+  //height: 500px;
   background-color: $white;
   font-family: $secondary-font;
 
@@ -80,19 +80,12 @@ li{
   border-bottom: 1px dotted $aluminum;
   vertical-align: center;
   margin: 10px 0 0 20px;
-
-
-
-
-
 }
 
 .leftside{
   display: inline-block;
   width: 70%;
   line-height: 1.5em;
-
-
 }
 
 .message{
@@ -121,23 +114,16 @@ li{
 .rightside{
   display: inline-block;
   width: 5%;
-
 }
 
 .fi-marker{
-
   font-size:20px;
 }
-
-
 
 .actions{
   display: inline-block;
   text-align: right;
-
-
 }
-
 
 .footer{
   height: 100px;
@@ -145,5 +131,61 @@ li{
   font-family: $secondary-font;
   color:$oil;
   border-top: 1px solid $oil;
+}
 
+.input-container {
+  //border: 1px solid gray;
+  text-align: center;
+  width: 70%;
+  margin: 10px auto 0 0;
+  background-color: $oil;
+  padding: 20px;
+  .input, .submit {
+    border: none;
+    outline: false;
+    background-color: $oil;
+    transition: all ease 1s;
+    &:hover,
+    &:hover+.submit {
+      border: 1px dotted #ddd;
+    }
+    &:hover {
+      border-right-color: transparent;
+    }
+    &:hover+.submit {
+      border-left-color: transparent;
+    }
+    &:focus{
+      background-color: #ddd;
+      color: $oil;
+    }
+    &:focus+.submit{
+      background-color: #ddd;
+      color: $oil;
+      border-left: 1px dotted $oil;
+    }
+  }
+
+  .input {
+    width: 90%;
+    height: 40px;
+    font-size: 20px;
+    font-family: "Helvetica", sans-serif;
+    outline: none;
+    background-color: $oil;
+    border-radius: 20px 0 0 20px;
+    padding-left: 20px;
+  }
+  .submit {
+    height: 40px;
+    line-height: 30px;
+    font-size: 30px;
+    color: white;
+    padding: 0 10px 5px 10px;
+    border: none;
+    //border: 1px solid #ddd;
+    border-radius: 0 20px 20px 0;
+    vertical-align: top;
+    background-color: $oil;
+  }
 }
