@@ -53,21 +53,71 @@ headerchatbox
 
 .header {
   height: 50px;
-  background-color: #333333;
-  font-family: "Inconsolata", "Open Sans", sans-serif;
+  background-color: white;
+  font-family: "Roboto", "Inconsolata", "Open Sans", sans-serif;
   color: #e1e1e1;
-  font-size: 24px; }
+  font-size: 24px;
+  border-bottom: 1px solid #333333; }
 
 .mainbody {
   height: 500px;
   background-color: white;
-  border: 1px solid #999999;
-  font-family: "Open Sans", "Inconsolata", sans-serif; }
+  font-family: "Roboto", "Open Sans", "Inconsolata", sans-serif; }
+
+.insidestructure {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 31.76157%;
+  display: inline-block; }
+  .insidestructure:last-child {
+    margin-right: 0; }
+
+li {
+  border-bottom: 1px dotted #999999;
+  vertical-align: center;
+  margin: 10px 0 0 20px; }
+
+.leftside {
+  display: inline-block;
+  width: 70%;
+  line-height: 1.5em; }
+
+.message {
+  margin: 0px 50px 10px 20px;
+  text-overflow: ellipsis;
+  display: inline-block;
+  vertical-align: top; }
+
+.center {
+  display: inline-block;
+  width: 20%; }
+
+.info-details {
+  font-size: 10px;
+  font-style: italic; }
+
+.timestamp {
+  font-size: 9px;
+  font-family: "Open Sans", "Inconsolata", sans-serif;
+  font-weight: bold; }
+
+.rightside {
+  display: inline-block;
+  width: 5%; }
+
+.fi-marker {
+  font-size: 20px; }
+
+.actions {
+  display: inline-block;
+  text-align: right; }
 
 .footer {
   height: 100px;
-  background-color: #515151;
-  font-family: "Open Sans", "Inconsolata", sans-serif;
-  color: white; }
+  background-color: #333333;
+  font-family: "Roboto", "Open Sans", "Inconsolata", sans-serif;
+  color: #333333;
+  border-top: 1px solid #333333; }
 
 /*# sourceMappingURL=main.css.map */
