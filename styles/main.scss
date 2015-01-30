@@ -28,8 +28,9 @@ $white: rgb(255, 255, 255);
 
 //FONT FAMILY
 
-$main-font: "Inconsolata", "Open Sans", sans-serif;
-$secondary-font: "Open Sans", "Inconsolata", sans-serif;
+$main-font: "Roboto", "Inconsolata", "Open Sans", sans-serif;
+$secondary-font: "Roboto", "Open Sans", "Inconsolata", sans-serif;
+$tertiary-font: "Open Sans", "Inconsolata", sans-serif;
 
 .container{
   border-radius: 7px;
@@ -51,26 +52,98 @@ headerchatbox
 
 .header {
   height: 50px;
-  background-color: $oil;
+  background-color: $white;
   font-family: $main-font;
   color: $zircon;
   font-size: 24px;
+  border-bottom: 1px solid $oil;
 
 
 }
 
-.mainbody{
+.mainbody {
   height: 500px;
   background-color: $white;
-  border: 1px solid $aluminum;
   font-family: $secondary-font;
 
 }
+
+.insidestructure {
+  @include span-columns(4);
+  display: inline-block;
+
+}
+
+
+li{
+
+  border-bottom: 1px dotted $aluminum;
+  vertical-align: center;
+  margin: 10px 0 0 20px;
+
+
+
+
+
+}
+
+.leftside{
+  display: inline-block;
+  width: 70%;
+  line-height: 1.5em;
+
+
+}
+
+.message{
+  margin: 0px 50px 10px 20px;
+  text-overflow: ellipsis;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.center{
+  display: inline-block;
+  width: 20%;
+}
+
+.info-details{
+  font-size: 10px;
+  font-style: italic;
+}
+
+.timestamp{
+  font-size: 9px;
+  font-family: $tertiary-font;
+  font-weight: bold;
+}
+
+.rightside{
+  display: inline-block;
+  width: 5%;
+
+}
+
+.fi-marker{
+
+  font-size:20px;
+}
+
+
+
+.actions{
+  display: inline-block;
+  text-align: right;
+
+
+}
+
 
 .footer{
   height: 100px;
-  background-color: $capecod;
+  background-color:$oil;
   font-family: $secondary-font;
-  color:$white;
+  color:$oil;
+  border-top: 1px solid $oil;
 
 }
