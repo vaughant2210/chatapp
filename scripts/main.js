@@ -23,5 +23,18 @@ getMessages(function(data) {
   });
 });
 
+//GIT Post
+
+var sendMessage = function(message){
+    $.ajax({
+    type: "POST",
+    url: "http://tiny-pizza-server.herokuapp.com/collections/greenville-chats",
+    data: message
+  })
+  .done(function( msg ) {
+    alert( "Data Saved: " + msg );
+  });
+};
+
 
 // Application Loop(s)
