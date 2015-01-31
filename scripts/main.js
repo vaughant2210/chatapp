@@ -7,7 +7,7 @@ var messageTemplate = _.template($('[data-template-name=message]').text());
 var messagePayload = {
   username: '',
   message: '',
-  created_at: Date.now(),
+  createdAt: Date.now(),
   appName: "After12"
 };
 
@@ -48,10 +48,22 @@ var loadAndSend = function(data) {
   sendMessage(messagePayload);
 };
 
+var login = function(username) {
+  currentUser = username;
+  $('.input').attr('placeholder', '(Type your message here)');
+  $('.submit i').removeClass('fi-key').addClass('fi-plus');
+  $('.current-user').text(currentUser);
+}
 // Application Loop(s)
 
 // Event Handlers
 $('.submit').on('click', function(e) {
-  loadAndSend($('.input').val());
+  var input = $('.input').val();
+  if (!input || !/\S/g.test(input) ) { return; }
+  if (currentUser === "guest") {
+    login(input);
+  } else {
+    loadAndSend(input);
+  }
   $('.input').val("");
 });
