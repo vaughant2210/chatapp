@@ -34,8 +34,9 @@
     <div class="footer">
       <div class="footerchatbox boxstructure">
       <div class="input-container">
-        <input type="text" class="input" placeholder="(Click here to type)"><!--
-        --><button class="submit">+</button>
+        <input type="text" class="input" placeholder="(Please enter a username)"><!--
+        --><button class="submit"><i class="fi-key"></i></button>
+        <p class="username-display">-- chatting as "<span class="current-user">guest</span>"</p>
         </div>
       </div>
     </div>
@@ -46,11 +47,11 @@
 <script type="text/template" data-template-name="message">
   <li>
     <div class ="leftside">
-      <span class="message"><%= (message) ? message : "&&NOMESSAGE" %></span>
+      <span class="message"><%= message %></span>
     </div>
     <div class="center">
-          <span class="info-details">by <%= (username) ? username : "&&NONAME"  %></span>
-          <span class="timestamp">:date</span>
+          <span class="info-details">by <%= username %></span>
+          <span class="timestamp"><%= moment(createdAt, 'x').fromNow() %></span>
     </div>
 
     <div class="rightside">

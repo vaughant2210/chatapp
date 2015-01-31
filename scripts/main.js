@@ -67,3 +67,10 @@ $('.submit').on('click', function(e) {
   }
   $('.input').val("");
 });
+
+$('.input').on('keydown', function(e) {
+  if (e.keyCode === 13) {
+    $('.submit').click();
+    console.log('clicked');
+  }
+});

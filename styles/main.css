@@ -125,29 +125,43 @@ li {
   border-top: 1px solid #333333; }
 
 .input-container {
+  position: relative;
   text-align: center;
   width: 70%;
   margin: 10px auto 0 0;
   background-color: #333333;
   padding: 20px; }
-  .input-container .input, .input-container .submit {
+  .input-container .username-display {
+    margin: 0;
+    text-align: left;
+    position: absolute;
+    left: 5%;
+    bottom: 5px;
+    font-size: 10px;
+    color: #ddd; }
+  .input-container .input {
     border: none;
     outline: false;
     background-color: #333333;
-    transition: all ease 1s; }
-    .input-container .input:hover, .input-container .input:hover + .submit, .input-container .submit:hover, .input-container .submit:hover + .submit {
-      border: 1px dotted #ddd; }
-    .input-container .input:hover, .input-container .submit:hover {
-      border-right-color: transparent; }
-    .input-container .input:hover + .submit, .input-container .submit:hover + .submit {
-      border-left-color: transparent; }
-    .input-container .input:focus, .input-container .submit:focus {
+    transition: all ease 0.5s; }
+    .input-container .input:hover {
+      border-top: 1px dotted #ddd;
+      border-bottom: 1px dotted #ddd;
+      border-left: 1px dotted #ddd; }
+    .input-container .input:hover + .submit {
+      border-top: 1px dotted #ddd;
+      border-bottom: 1px dotted #ddd;
+      border-right: 1px dotted #ddd; }
+    .input-container .input:focus {
       background-color: #ddd;
       color: #333333; }
-    .input-container .input:focus + .submit, .input-container .submit:focus + .submit {
+    .input-container .input:focus + .submit {
       background-color: #ddd;
       color: #333333;
       border-left: 1px dotted #333333; }
+  .input-container .submit {
+    transition: all ease 0.5s;
+    outline: false; }
   .input-container .input {
     width: 90%;
     height: 40px;
