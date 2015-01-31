@@ -47,16 +47,19 @@
 <script type="text/template" data-template-name="message">
   <li>
     <div class ="leftside">
-      <span class="message"><%= message %></span>
+      <span class="message"><%= msg.message %></span>
     </div>
     <div class="center">
-          <span class="info-details">by <%= username %></span>
-          <span class="timestamp"><%= moment(createdAt, 'x').fromNow() %></span>
+          <span class="info-details">by <%= msg.username %></span>
+          <span class="timestamp"><%= moment(msg.createdAt, 'x').fromNow() %></span>
     </div>
 
     <div class="rightside">
           <span class="actions">
             <i class="fi-star"></i>
+            <% if (msg.appName && msg.appName === "After12") { %>
+              <a class="delete" href="#a" data-id="<%= msg._id %>"><i class="fi-x"></i></a>
+            <% } %>
           </span>
     </div>
   </li>

@@ -88,6 +88,15 @@ li{
   display: inline-block;
   width: 70%;
   line-height: 1.5em;
+
+  span {
+    transition: opacity ease 1s;
+
+    &.fade {
+      font-style: italic;
+      opacity: 0;
+    }
+  }
 }
 
 .message{

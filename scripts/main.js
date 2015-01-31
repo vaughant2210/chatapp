@@ -3,7 +3,7 @@
 var currentUser = "guest";
 
 // Object definitions
-var messageTemplate = _.template($('[data-template-name=message]').text());
+var messageTemplate = _.template($('[data-template-name=message]').text(), {variable: "msg"});
 var messagePayload = {
   username: '',
   message: '',
@@ -30,17 +30,33 @@ var sendMessage = function(message){
   });
 };
 
+var deleteMessage = function(id) {
+  $.ajax({
+    type: "DELETE",
+    url: "http://tiny-pizza-server.herokuapp.com/collections/greenville-chats/" + id
+  })
+  .done(function(d){
+    console.log(d);
+  });
+};
+
 // Helper Functions
 // getMessages(function(d) { console.log(d); });
-getMessages(function(data) {
+var dynamicFilter = function(rawData) {
+  // Need to check for images, scripts, links
+
+}
+
+var populate = function(data) {
   data.forEach(function(message) {
     if (!message.username || !message.message || !message.createdAt) {
       console.log("ITEM WITH BAD DATA: " + message._id);
       return;
     }
+    //message = dynamicFilter(message);
     $('.chatbox').append(messageTemplate(message));
   });
-});
+};
 
 var loadAndSend = function(data) {
   messagePayload.username = currentUser;
@@ -53,8 +69,10 @@ var login = function(username) {
   $('.input').attr('placeholder', '(Type your message here)');
   $('.submit i').removeClass('fi-key').addClass('fi-plus');
   $('.current-user').text(currentUser);
-}
+};
 // Application Loop(s)
+
+getMessages(populate);
 
 // Event Handlers
 $('.submit').on('click', function(e) {
@@ -73,4 +91,14 @@ $('.input').on('keydown', function(e) {
     $('.submit').click();
     console.log('clicked');
   }
+});
+
+$('.chatbox').on('click', '.delete', function(e) {
+  e.preventDefault();
+  var $container = $(this).parents('li'),
+      $textbox = $container.children('.leftside').children('span');
+  deleteMessage($(this).attr("data-id"));
+  $textbox.text("...Message deleted...");
+  $textbox.addClass('fade');
+  setTimeout(function() { $container.remove(); console.log("done"); }, 1000);
 });

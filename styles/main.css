@@ -83,6 +83,11 @@ li {
   display: inline-block;
   width: 70%;
   line-height: 1.5em; }
+  .leftside span {
+    transition: opacity ease 1s; }
+    .leftside span.fade {
+      font-style: italic;
+      opacity: 0; }
 
 .message {
   margin: 0px 50px 10px 20px;
