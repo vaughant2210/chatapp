@@ -43,18 +43,23 @@ var deleteMessage = function(id) {
 // Helper Functions
 // getMessages(function(d) { console.log(d); });
 var dynamicFilter = function(rawData) {
+  // DUMMY MIDDLEWARE
   // Need to check for images, scripts, links
-
+  return rawData;
 }
 
 var populate = function(data) {
+  var i = 0;
+  $('.chatbox').empty();
   data.forEach(function(message) {
+    if (i === 12) { return; }
     if (!message.username || !message.message || !message.createdAt) {
       console.log("ITEM WITH BAD DATA: " + message._id);
       return;
     }
     //message = dynamicFilter(message);
     $('.chatbox').append(messageTemplate(message));
+    i++;
   });
 };
 
@@ -73,6 +78,7 @@ var login = function(username) {
 // Application Loop(s)
 
 getMessages(populate);
+setInterval(function() { getMessages(populate); }, 2000);
 
 // Event Handlers
 $('.submit').on('click', function(e) {
