@@ -1,6 +1,6 @@
 // Global Variables
 //  -- try to keep this section SHORT! :)
-
+var currentUser = "guest";
 
 // Object definitions
 var messageTemplate = _.template($('[data-template-name=message]').text());
@@ -41,5 +41,15 @@ var sendMessage = function(message){
   });
 };
 
+var loadAndSend = function(data) {
+  messagePayload.username = currentUser;
+  messagePayload.message = data;
+  sendMessage(messagePayload);
+};
+
+$('.submit').on('click', function(e) {
+  loadAndSend($('.input').val());
+  $('.input').val("");
+});
 
 // Application Loop(s)
