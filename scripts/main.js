@@ -15,21 +15,10 @@ var messagePayload = {
 var getMessages = function(callback) {
   $.ajax("http://tiny-pizza-server.herokuapp.com/collections/greenville-chats")
     .fail(function(err) { console.log(err); })
-    .done(function(d) { callback(d); });
+    .done(callback);
 };
 
-// Helper Functions
-// getMessages(function(d) { console.log(d); });
-getMessages(function(data) {
-  data.forEach(function(message) {
-    if (!message.username) { return; }
-    console.log(message);
-    $('.chatbox').append(messageTemplate(message));
-  });
-});
-
 //GIT Post
-
 var sendMessage = function(message){
     $.ajax({
     type: "POST",
@@ -41,15 +30,28 @@ var sendMessage = function(message){
   });
 };
 
+// Helper Functions
+// getMessages(function(d) { console.log(d); });
+getMessages(function(data) {
+  data.forEach(function(message) {
+    if (!message.username || !message.message || !message.createdAt) {
+      console.log("ITEM WITH BAD DATA: " + message._id);
+      return;
+    }
+    $('.chatbox').append(messageTemplate(message));
+  });
+});
+
 var loadAndSend = function(data) {
   messagePayload.username = currentUser;
   messagePayload.message = data;
   sendMessage(messagePayload);
 };
 
+// Application Loop(s)
+
+// Event Handlers
 $('.submit').on('click', function(e) {
   loadAndSend($('.input').val());
   $('.input').val("");
 });
-
-// Application Loop(s)
