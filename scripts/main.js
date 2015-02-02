@@ -54,10 +54,10 @@ var populate = function(data) {
   data.forEach(function(message) {
     if (i === 12) { return; }
     if (!message.username || !message.message || !message.createdAt) {
-      console.log("ITEM WITH BAD DATA: " + message._id);
+      // console.log("ITEM WITH BAD DATA: " + message._id);
       return;
     }
-    //message = dynamicFilter(message);
+    message = dynamicFilter(message);
     $('.chatbox').append(messageTemplate(message));
     i++;
   });
@@ -78,7 +78,7 @@ var login = function(username) {
 // Application Loop(s)
 
 getMessages(populate);
-setInterval(function() { getMessages(populate); }, 2000);
+setInterval(function() { getMessages(populate); }, 1000);
 
 // Event Handlers
 $('.submit').on('click', function(e) {
